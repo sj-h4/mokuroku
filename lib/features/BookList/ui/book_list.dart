@@ -1,5 +1,4 @@
 import 'ui.dart';
-import 'package:mokuroku/features/BookList/data/book_repository.dart';
 import 'package:mokuroku/features/BookList/providers/books_provider.dart';
 
 class BookList extends HookConsumerWidget {
@@ -35,11 +34,7 @@ class BookList extends HookConsumerWidget {
             error: ((error, stackTrace) => Text(error.toString())),
             loading: CircularProgressIndicator.new),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            ref.read(bookRepositoryProvider.future).then((value) {
-              value.addBook('Book12', 'Author12');
-            });
-          },
+          onPressed: () => context.go('/register'),
           child: const Icon(Icons.add),
         ));
   }

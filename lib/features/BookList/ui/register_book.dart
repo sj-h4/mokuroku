@@ -11,8 +11,11 @@ class RegisterBook extends HookConsumerWidget {
     final authorController = useTextEditingController(text: '');
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Register Book'),
-        ),
+            title: const Text('Register Book'),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => context.go('/'),
+            )),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -34,6 +37,7 @@ class RegisterBook extends HookConsumerWidget {
                   ref.read(bookRepositoryProvider.future).then((value) {
                     value.addBook(titleController.text, authorController.text);
                   });
+                  context.go('/');
                 },
                 child: const Text('Register'),
               ),
