@@ -16,20 +16,31 @@ class RegisterBook extends HookConsumerWidget {
               icon: const Icon(Icons.arrow_back),
               onPressed: () => context.go('/'),
             )),
-        body: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextField(
-                controller: titleController,
-                decoration: const InputDecoration(
-                  hintText: 'Book Name',
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                child: TextField(
+                  controller: titleController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'タイトル',
+                    hintText: 'タイトル',
+                  ),
                 ),
               ),
-              TextField(
-                controller: authorController,
-                decoration: const InputDecoration(
-                  hintText: 'Author',
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 20),
+                child: TextField(
+                  controller: authorController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: '著者',
+                    hintText: '著者',
+                  ),
                 ),
               ),
               ElevatedButton(
