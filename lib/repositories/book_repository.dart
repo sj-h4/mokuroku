@@ -15,11 +15,12 @@ class BookRepository {
 
   final BookService bookService;
 
-  Future<List<Book>> getBooks() async {
-    final books = await bookService.findAll();
-    return books
-        .map((book) => Book(title: book.title, author: book.author))
-        .toList();
+  Future<List<Book>> getAllBooks() async {
+    return bookService.findAll();
+  }
+
+  Future<Book?> getOneBookById(int id) async {
+    return bookService.findById(id);
   }
 
   Future<void> addBook(String bookName, String author) async {

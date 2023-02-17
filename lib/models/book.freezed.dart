@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'book.dart';
 
@@ -20,6 +20,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Book {
+  int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
 
@@ -33,7 +34,7 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
-  $Res call({String title, String author});
+  $Res call({int id, String title, String author});
 }
 
 /// @nodoc
@@ -49,10 +50,15 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? author = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -71,7 +77,7 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$$_BookCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String author});
+  $Res call({int id, String title, String author});
 }
 
 /// @nodoc
@@ -83,10 +89,15 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? title = null,
     Object? author = null,
   }) {
     return _then(_$_Book(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -102,10 +113,12 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
 /// @nodoc
 @JsonSerializable()
 class _$_Book with DiagnosticableTreeMixin implements _Book {
-  const _$_Book({required this.title, required this.author});
+  const _$_Book({required this.id, required this.title, required this.author});
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
+  @override
+  final int id;
   @override
   final String title;
   @override
@@ -113,7 +126,7 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Book(title: $title, author: $author)';
+    return 'Book(id: $id, title: $title, author: $author)';
   }
 
   @override
@@ -121,6 +134,7 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Book'))
+      ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('author', author));
   }
@@ -130,13 +144,14 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Book &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.author, author) || other.author == author));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, author);
+  int get hashCode => Object.hash(runtimeType, id, title, author);
 
   @JsonKey(ignore: true)
   @override
@@ -154,10 +169,14 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
 
 abstract class _Book implements Book {
   const factory _Book(
-      {required final String title, required final String author}) = _$_Book;
+      {required final int id,
+      required final String title,
+      required final String author}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
+  @override
+  int get id;
   @override
   String get title;
   @override

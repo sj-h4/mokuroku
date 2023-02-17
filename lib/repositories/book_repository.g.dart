@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String $bookRepositoryHash() => r'9c5d64bdd1d9bab237f58497525326dc7012d2ab';
+String _$bookRepositoryHash() => r'9c5d64bdd1d9bab237f58497525326dc7012d2ab';
 
 /// See also [bookRepository].
 final bookRepositoryProvider = AutoDisposeFutureProvider<BookRepository>(
@@ -37,6 +37,6 @@ final bookRepositoryProvider = AutoDisposeFutureProvider<BookRepository>(
   name: r'bookRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : $bookRepositoryHash,
+      : _$bookRepositoryHash,
 );
 typedef BookRepositoryRef = AutoDisposeFutureProviderRef<BookRepository>;

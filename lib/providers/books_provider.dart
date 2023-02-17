@@ -7,5 +7,5 @@ part 'books_provider.g.dart';
 @riverpod
 Future<List<Book>> books(BooksRef ref) async {
   final bookRepository = await ref.watch(bookRepositoryProvider.future);
-  return bookRepository.getBooks();
+  return bookRepository.getAllBooks();
 }

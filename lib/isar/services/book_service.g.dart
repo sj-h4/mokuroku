@@ -29,13 +29,13 @@ class _SystemHash {
   }
 }
 
-String $bookServiceHash() => r'6cb02da97ff701b1a10b60efa443a117422cbc51';
+String _$bookServiceHash() => r'6cb02da97ff701b1a10b60efa443a117422cbc51';
 
 /// See also [bookService].
 final bookServiceProvider = AutoDisposeFutureProvider<BookService>(
   bookService,
   name: r'bookServiceProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $bookServiceHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$bookServiceHash,
 );
 typedef BookServiceRef = AutoDisposeFutureProviderRef<BookService>;

@@ -29,13 +29,13 @@ class _SystemHash {
   }
 }
 
-String $booksHash() => r'7b4db97ea4a02e9c56d6336eb509f8da89dc064c';
+String _$booksHash() => r'196ec609c99b330fb7eab1e97799f98cbb511ea3';
 
 /// See also [books].
 final booksProvider = AutoDisposeFutureProvider<List<Book>>(
   books,
   name: r'booksProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $booksHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$booksHash,
 );
 typedef BooksRef = AutoDisposeFutureProviderRef<List<Book>>;

@@ -29,13 +29,13 @@ class _SystemHash {
   }
 }
 
-String $isarInstanceHash() => r'72ee43cd82c3227dea5a31ec5ab03f0e7174eaa0';
+String _$isarInstanceHash() => r'72ee43cd82c3227dea5a31ec5ab03f0e7174eaa0';
 
 /// See also [isarInstance].
 final isarInstanceProvider = FutureProvider<Isar>(
   isarInstance,
   name: r'isarInstanceProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $isarInstanceHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$isarInstanceHash,
 );
 typedef IsarInstanceRef = FutureProviderRef<Isar>;
