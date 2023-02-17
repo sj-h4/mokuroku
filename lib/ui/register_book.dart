@@ -1,5 +1,5 @@
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:mokuroku/features/BookList/data/book_repository.dart';
+import 'package:mokuroku/repositories/book_repository.dart';
 
 import 'ui.dart';
 

@@ -1,5 +1,5 @@
 import 'ui.dart';
-import 'package:mokuroku/features/BookList/providers/books_provider.dart';
+import 'package:mokuroku/providers/books_provider.dart';
 
 class BookList extends HookConsumerWidget {
   const BookList({super.key});

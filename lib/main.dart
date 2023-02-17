@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mokuroku/features/BookList/ui/book_list.dart';
+import 'package:mokuroku/ui/book_list.dart';
 
-import 'features/BookList/ui/register_book.dart';
+import 'ui/register_book.dart';
 
 final _router = GoRouter(
   routes: <RouteBase>[

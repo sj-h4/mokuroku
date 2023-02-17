@@ -1,5 +1,5 @@
-import 'package:mokuroku/features/BookList/data/book_repository.dart';
-import 'package:mokuroku/features/BookList/models/book.dart';
+import 'package:mokuroku/repositories/book_repository.dart';
+import 'package:mokuroku/models/book.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'books_provider.g.dart';

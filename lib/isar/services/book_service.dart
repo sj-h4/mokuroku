@@ -1,6 +1,6 @@
 import 'package:isar/isar.dart';
-import 'package:mokuroku/core/datasources/isar_provider.dart';
-import 'package:mokuroku/core/models/book.dart';
+import 'package:mokuroku/isar/isar_provider.dart';
+import 'package:mokuroku/isar/models/book.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'book_service.g.dart';
