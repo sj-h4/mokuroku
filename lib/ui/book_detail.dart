@@ -3,8 +3,8 @@ import 'package:mokuroku/repositories/book_repository.dart';
 
 import 'ui.dart';
 
-class BookDitail extends HookConsumerWidget {
-  const BookDitail(this.bookId, {super.key});
+class BookDetail extends HookConsumerWidget {
+  const BookDetail(this.bookId, {super.key});
   final int bookId;
   @override
   Widget build(BuildContext context, WidgetRef ref) {

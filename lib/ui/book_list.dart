@@ -19,14 +19,17 @@ class BookList extends HookConsumerWidget {
                   return Card(
                     elevation: 0,
                     color: Theme.of(context).colorScheme.surfaceVariant,
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text(book.title),
-                          subtitle: Text(book.author),
-                        ),
-                      ],
-                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: InkWell(
+                        onTap: () => context.go('/books/${book.id}'),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              title: Text(book.title),
+                              subtitle: Text(book.author),
+                            ),
+                          ],
+                        )),
                   );
                 },
               );

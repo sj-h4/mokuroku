@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mokuroku/ui/book_list.dart';
-
-import 'ui/register_book.dart';
+import 'package:mokuroku/ui/book_detail.dart';
+import 'package:mokuroku/ui/register_book.dart';
 
 final _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
       path: '/',
       builder: (context, state) => const BookList(),
+    ),
+    GoRoute(
+      path: '/books/:id',
+      builder: (context, state) => BookDetail(int.parse(state.params['id']!)),
     ),
     GoRoute(
       path: '/register',
