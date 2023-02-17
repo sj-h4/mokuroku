@@ -26,6 +26,9 @@ class BookDetail extends HookConsumerWidget {
                 Text(book.author),
                 IconButton(
                     onPressed: () {
+                      ref.read(bookRepositoryProvider.future).then((value) {
+                        value.deleteBook(book.id);
+                      });
                       context.go('/');
                     },
                     icon: const Icon(Icons.delete))

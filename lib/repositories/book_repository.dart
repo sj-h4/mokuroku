@@ -26,4 +26,8 @@ class BookRepository {
   Future<void> addBook(String bookName, String author) async {
     await bookService.add(bookName, author);
   }
+
+  Future<void> deleteBook(int id) async {
+    await bookService.delete(id);
+  }
 }

@@ -48,6 +48,9 @@ class RegisterBook extends HookConsumerWidget {
                   ref.read(bookRepositoryProvider.future).then((value) {
                     value.addBook(titleController.text, authorController.text);
                   });
+                  ref.read(bookRepositoryProvider.future).then((value) {
+                    value.getAllBooks();
+                  });
                   context.go('/');
                 },
                 child: const Text('Register'),

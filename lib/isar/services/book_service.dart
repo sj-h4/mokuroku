@@ -39,4 +39,10 @@ class BookService {
       await isar.books.put(book);
     });
   }
+
+  Future<void> delete(int id) async {
+    await isar.writeTxn(() async {
+      await isar.books.delete(id);
+    });
+  }
 }
