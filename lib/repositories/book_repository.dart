@@ -23,8 +23,10 @@ class BookRepository {
     return bookService.findById(id);
   }
 
-  Future<void> addBook(String bookName, String author) async {
-    await bookService.add(bookName, author);
+  Future<void> addBook(String bookName, String author, String publishedYear,
+      List<String>? tags, String? summary, String? isbn, String? bibtex) async {
+    await bookService.add(
+        bookName, author, publishedYear, tags, summary, isbn, bibtex);
   }
 
   Future<void> deleteBook(int id) async {

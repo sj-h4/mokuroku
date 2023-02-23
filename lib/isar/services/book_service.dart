@@ -46,10 +46,16 @@ class BookService {
             bibtex: book.bibtex);
   }
 
-  Future<void> add(String bookName, String author) async {
+  Future<void> add(String bookName, String author, String publishedYear,
+      List<String>? tags, String? summary, String? isbn, String? bibtex) async {
     final book = isar_book.Book()
       ..title = bookName
-      ..author = author;
+      ..author = author
+      ..publishedYear = publishedYear
+      ..tags = tags
+      ..summary = summary
+      ..isbn = isbn
+      ..bibtex = bibtex;
     await isar.writeTxn(() async {
       await isar.books.put(book);
     });
