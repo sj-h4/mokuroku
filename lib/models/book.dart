@@ -9,6 +9,11 @@ class Book with _$Book {
     required int id,
     required String title,
     required String author,
+    required String publishedYear,
+    List<String>? tags,
+    String? summary,
+    String? isbn,
+    String? bibtex,
   }) = _Book;
 
   factory Book.fromJson(Map<String, Object?> json) => _$BookFromJson(json);

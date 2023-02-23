@@ -23,6 +23,11 @@ mixin _$Book {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
+  String get publishedYear => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
+  String? get isbn => throw _privateConstructorUsedError;
+  String? get bibtex => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +39,15 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
-  $Res call({int id, String title, String author});
+  $Res call(
+      {int id,
+      String title,
+      String author,
+      String publishedYear,
+      List<String>? tags,
+      String? summary,
+      String? isbn,
+      String? bibtex});
 }
 
 /// @nodoc
@@ -53,6 +66,11 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
     Object? id = null,
     Object? title = null,
     Object? author = null,
+    Object? publishedYear = null,
+    Object? tags = freezed,
+    Object? summary = freezed,
+    Object? isbn = freezed,
+    Object? bibtex = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -67,6 +85,26 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
+      publishedYear: null == publishedYear
+          ? _value.publishedYear
+          : publishedYear // ignore: cast_nullable_to_non_nullable
+              as String,
+      tags: freezed == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isbn: freezed == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bibtex: freezed == bibtex
+          ? _value.bibtex
+          : bibtex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -77,7 +115,15 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$$_BookCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String title, String author});
+  $Res call(
+      {int id,
+      String title,
+      String author,
+      String publishedYear,
+      List<String>? tags,
+      String? summary,
+      String? isbn,
+      String? bibtex});
 }
 
 /// @nodoc
@@ -92,6 +138,11 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
     Object? id = null,
     Object? title = null,
     Object? author = null,
+    Object? publishedYear = null,
+    Object? tags = freezed,
+    Object? summary = freezed,
+    Object? isbn = freezed,
+    Object? bibtex = freezed,
   }) {
     return _then(_$_Book(
       id: null == id
@@ -106,6 +157,26 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as String,
+      publishedYear: null == publishedYear
+          ? _value.publishedYear
+          : publishedYear // ignore: cast_nullable_to_non_nullable
+              as String,
+      tags: freezed == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      summary: freezed == summary
+          ? _value.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isbn: freezed == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bibtex: freezed == bibtex
+          ? _value.bibtex
+          : bibtex // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -113,7 +184,16 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
 /// @nodoc
 @JsonSerializable()
 class _$_Book with DiagnosticableTreeMixin implements _Book {
-  const _$_Book({required this.id, required this.title, required this.author});
+  const _$_Book(
+      {required this.id,
+      required this.title,
+      required this.author,
+      required this.publishedYear,
+      final List<String>? tags,
+      this.summary,
+      this.isbn,
+      this.bibtex})
+      : _tags = tags;
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
@@ -123,10 +203,28 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
   final String title;
   @override
   final String author;
+  @override
+  final String publishedYear;
+  final List<String>? _tags;
+  @override
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? summary;
+  @override
+  final String? isbn;
+  @override
+  final String? bibtex;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Book(id: $id, title: $title, author: $author)';
+    return 'Book(id: $id, title: $title, author: $author, publishedYear: $publishedYear, tags: $tags, summary: $summary, isbn: $isbn, bibtex: $bibtex)';
   }
 
   @override
@@ -136,7 +234,12 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
       ..add(DiagnosticsProperty('type', 'Book'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('author', author));
+      ..add(DiagnosticsProperty('author', author))
+      ..add(DiagnosticsProperty('publishedYear', publishedYear))
+      ..add(DiagnosticsProperty('tags', tags))
+      ..add(DiagnosticsProperty('summary', summary))
+      ..add(DiagnosticsProperty('isbn', isbn))
+      ..add(DiagnosticsProperty('bibtex', bibtex));
   }
 
   @override
@@ -146,12 +249,19 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
             other is _$_Book &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.author, author) || other.author == author));
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.publishedYear, publishedYear) ||
+                other.publishedYear == publishedYear) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            (identical(other.summary, summary) || other.summary == summary) &&
+            (identical(other.isbn, isbn) || other.isbn == isbn) &&
+            (identical(other.bibtex, bibtex) || other.bibtex == bibtex));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, author);
+  int get hashCode => Object.hash(runtimeType, id, title, author, publishedYear,
+      const DeepCollectionEquality().hash(_tags), summary, isbn, bibtex);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +281,12 @@ abstract class _Book implements Book {
   const factory _Book(
       {required final int id,
       required final String title,
-      required final String author}) = _$_Book;
+      required final String author,
+      required final String publishedYear,
+      final List<String>? tags,
+      final String? summary,
+      final String? isbn,
+      final String? bibtex}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
@@ -181,6 +296,16 @@ abstract class _Book implements Book {
   String get title;
   @override
   String get author;
+  @override
+  String get publishedYear;
+  @override
+  List<String>? get tags;
+  @override
+  String? get summary;
+  @override
+  String? get isbn;
+  @override
+  String? get bibtex;
   @override
   @JsonKey(ignore: true)
   _$$_BookCopyWith<_$_Book> get copyWith => throw _privateConstructorUsedError;

@@ -19,8 +19,15 @@ class BookService {
   Future<List<Book>> findAll() async {
     final books = await isar.books.where().findAll();
     return books
-        .map(
-            (book) => Book(id: book.id, title: book.title, author: book.author))
+        .map((book) => Book(
+            id: book.id,
+            title: book.title,
+            author: book.author,
+            publishedYear: book.publishedYear,
+            tags: book.tags,
+            summary: book.summary,
+            isbn: book.isbn,
+            bibtex: book.bibtex))
         .toList();
   }
 
@@ -28,7 +35,15 @@ class BookService {
     final book = await isar.books.get(id);
     return book == null
         ? null
-        : Book(id: book.id, title: book.title, author: book.author);
+        : Book(
+            id: book.id,
+            title: book.title,
+            author: book.author,
+            publishedYear: book.publishedYear,
+            tags: book.tags,
+            summary: book.summary,
+            isbn: book.isbn,
+            bibtex: book.bibtex);
   }
 
   Future<void> add(String bookName, String author) async {
